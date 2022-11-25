@@ -79,6 +79,10 @@ func setup() (func() error, error) {
 		return l.Close, err
 	}
 
+	if os.Getenv("ENV") == "ci" {
+		port = "5432"
+	}
+
 	dsn = fmt.Sprintf("postgres://postgres:postgres@localhost:%s/postgres?sslmode=disable", port)
 
 	hcfg := &container.HostConfig{
