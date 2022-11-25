@@ -22,5 +22,4 @@ jobs:
           go-version-file: go.mod
 
       - name: Go Test
-        working-directory: ./backend
         run: go test ./...
